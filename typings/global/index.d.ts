@@ -8,6 +8,6 @@
 /// <reference path="./interfaces/response.d.ts" />
 /// <reference path="./interfaces/brain.d.ts" />
 /// <reference path="./interfaces/router.d.ts" />
-/// <reference path="./interfaces/dbconfig.d.ts" />
+/// <reference path="./interfaces/state.d.ts" />
 /// <reference path="./interfaces/database.d.ts" />
 /// <reference path="./interfaces/table.d.ts" />
