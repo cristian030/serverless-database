@@ -1,14 +1,36 @@
 
+Table of contents:
+
+- [How to use](#how-to-use-serverless-database)
+- [Query functionality (currently implemented)](#query-functionality-currently)
+- [How it works](#how-it-works)
+
 
 # How to use Serverless Database
 
 This Serverless Database repository is a proof of concept that I had an idea about for quite some time. It currently has just basic functionality.
 
 
+## Try out on local machine (without AWS)
+
+You can try out this project locally, without using AWS:
+
+1. Run DynamoDB local, using docker container: `docker run -p 8000:8000 amazon/dynamodb-local`
+
+2. Run S3 local, using docker container: `docker run -it -p 4566:4566 -p 4571:4571 localstack/localstack -e "SERVICES=s3"`
+
+3. Set location of DynamoDB and S3 as environment variables in `.env` file.
+
+4. After cloning this repo, install dependencies by running `npm install` in root.
+
+5. Run (for example) the Jest tests with command `npm test`.
+
+6. Run your own code (in `src/index.ts`) using command `npm run start`.
+
 
 ## Create database
 
-Initialize a `new database brain` (this can [run anywhere](), as long as it can connect to DynamoDB and S3):
+Initialize a `new database brain` (this can [run anywhere](#where-can-i-run-the-brains-of-serverless-database), as long as it can connect to DynamoDB and S3):
 ```
 import Brain from './brain'
 
@@ -103,9 +125,9 @@ const result = await db_brain.handle(event)
 */
 ```
 
-Note: you can currently only query on fields that are [marked as `indexed_fields`](), and the field should be at the root of the document.
+Note: you can currently only query on fields that are [marked as `indexed_fields`](#create-table) while creating the table, and the field should be at the root of the document.
 
-It [is possible]() to implement more 'advanced' query functionality (for strings), such as "begins_with", case-insensitive search, etc.
+It [is possible](#query-functionality-currently) to implement more 'advanced' query functionality (for strings), such as "begins_with", case-insensitive search, etc.
 
 
 
